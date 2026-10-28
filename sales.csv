@@ -1,0 +1,16 @@
+Product,Category,Customer_Name,City_Name,Date_ID,Full_Date,Day,Month,Quarter,Year,Quantity,Price,Sales_Amount
+Laptop,Electronics,Alice Smith,New York,20240101,2024-01-01,1,1,1,2024,2,1200,2400
+Smartphone,Electronics,Bob Jones,Los Angeles,20240102,2024-01-02,2,1,1,2024,1,800,800
+Desk Chair,Furniture,Charlie Brown,Chicago,20240103,2024-01-03,3,1,1,2024,4,150,600
+Office Table,Furniture,Diana Prince,Houston,20240104,2024-01-04,4,1,1,2024,1,350,350
+Headphones,Electronics,Evan Wright,Phoenix,20240105,2024-01-05,5,1,1,2024,3,99.99,299.97
+Coffee Maker,Appliances,Fiona Gallagher,Philadelphia,20240106,2024-01-06,6,1,1,2024,2,85.5,171
+Blender,Appliances,George Clark,San Antonio,20240107,2024-01-07,7,1,1,2024,1,45,45
+Notebook,Stationery,Hannah Abbott,San Diego,20240108,2024-01-08,8,1,1,2024,10,5,50
+Pen Set,Stationery,Ian Malcolm,Dallas,20240109,2024-01-09,9,1,1,2024,5,12.5,62.5
+Monitor,Electronics,Julia Roberts,San Jose,20240110,2024-01-10,10,1,1,2024,2,250,500
+Laptop,Electronics,Bob Jones,Chicago,20240105,2024-01-05,5,1,1,2024,1,1200,1200
+Headphones,Electronics,Charlie Brown,New York,20240106,2024-01-06,6,1,1,2024,2,99.99,199.98
+Smartphone,Electronics,Evan Wright,Houston,20240107,2024-01-07,7,1,1,2024,2,800,1600
+Notebook,Stationery,Alice Smith,Los Angeles,20240108,2024-01-08,8,1,1,2024,15,5,75
+Coffee Maker,Appliances,Diana Prince,Phoenix,20240109,2024-01-09,9,1,1,2024,1,85.5,85.5
