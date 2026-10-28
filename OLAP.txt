@@ -1,0 +1,93 @@
+CREATE TABLE Dim_Product (
+    Product_ID INT AUTO_INCREMENT PRIMARY KEY,
+    Product VARCHAR(100),
+    Category VARCHAR(100)
+);
+
+CREATE TABLE Dim_Customer (
+    Customer_ID INT AUTO_INCREMENT PRIMARY KEY,
+    Customer_Name VARCHAR(100)
+);
+
+CREATE TABLE Dim_City (
+    City_ID INT AUTO_INCREMENT PRIMARY KEY,
+    City_Name VARCHAR(100)
+);
+
+CREATE TABLE Dim_Date (
+    Date_ID INT PRIMARY KEY,
+    Full_Date DATE,
+    Day INT,
+    Month INT,
+    Quarter INT,
+    Year INT
+);
+
+CREATE TABLE Fact_Sales (
+    Sale_ID INT AUTO_INCREMENT PRIMARY KEY,
+    Product_ID INT,
+    Customer_ID INT,
+    City_ID INT,
+    Date_ID INT,
+    Quantity INT,
+    Price DECIMAL(10,2),
+    Sales_Amount DECIMAL(10,2),
+
+    FOREIGN KEY (Product_ID) REFERENCES Dim_Product(Product_ID),
+    FOREIGN KEY (Customer_ID) REFERENCES Dim_Customer(Customer_ID),
+    FOREIGN KEY (City_ID) REFERENCES Dim_City(City_ID),
+    FOREIGN KEY (Date_ID) REFERENCES Dim_Date(Date_ID)
+);
+
+
+----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+#Roll up
+
+SELECT c.City_Name,
+       SUM(f.Sales_Amount) AS Total_Sales
+FROM fact_sales f
+JOIN dim_city c
+ON f.City_ID = c.City_ID
+GROUP BY c.City_Name WITH ROLLUP;
+
+--------------------------
+
+# Drill Down
+
+SELECT c.City_Name,
+       p.Product,
+       SUM(f.Sales_Amount) AS Total_Sales
+FROM fact_sales f
+JOIN dim_city c
+ON f.City_ID = c.City_ID
+JOIN dim_product p
+ON f.Product_ID = p.Product_ID
+GROUP BY c.City_Name, p.Product;
+
+---------------------------------
+
+#slice
+
+SELECT *
+FROM fact_sales f
+JOIN dim_city c
+ON f.City_ID = c.City_ID
+WHERE c.City_Name = 'Pune';
+
+--------------------------------
+
+#Dice...
+
+SELECT p.Product,
+       c.City_Name,
+       f.Sales_Amount
+FROM fact_sales f
+JOIN dim_product p
+ON f.Product_ID = p.Product_ID
+JOIN dim_city c
+ON f.City_ID = c.City_ID
+WHERE c.City_Name = 'Pune'
+  AND p.Category = 'Electronics';
+
+--------------------
